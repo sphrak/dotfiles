@@ -3,6 +3,7 @@
 configs for:
 
 * dunst
+* polybar
 * i3
 * neovim
 * termite
