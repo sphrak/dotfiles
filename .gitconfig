@@ -1,9 +1,9 @@
 [user]
-	name = Niclas
-	email = niclas.kroon@protonmail.ch
-	signingkey = 1E8D3677
+    name = Niclas
+    email = niclas.kroon@protonmail.ch
+    signingkey = 1E8D3677
 [commit]
-	gpgsign = true
+    gpgsign = true
 [color]
     ui = auto
 
