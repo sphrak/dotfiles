@@ -18,3 +18,5 @@ lg = !"git lg1"
 	a = add
 [gpg]
 	program = gpg
+[core]
+	editor = nvim
