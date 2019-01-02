@@ -1,4 +1,3 @@
-
 [colors]
 background = #292d3e
 background-alt = #292d3e
@@ -9,70 +8,26 @@ primary = #ffcb6b
 secondary = #82aaff
 alert = #f07178
 
-;high = #268bd2
-;high-alt = #0c2b41
-
-red=      #f07178
-green=     #c3e88d
-yellow=      #ffcb6b
-blue=     #82aaff
-magenta=     #c792ea
-cyan=     #89ddff
-white=      #d0d0d0
-
-
-;background = #be1e282c
-;background-alt = #be1e282c
-;foreground = #f3f4f5
-;foreground-alt = #f3f4f5
-;foreground-dim = #676e7d
-;primary = #ffb52a
-;secondary = #fe60053
-;alert = #ff6600
-
-;high = #268bd2
-;high-alt = #0c2b41
-
-;red=      #eb606b
-;green=     #c3e88d
-;yellow=      #f7eb95
-;blue=     #aeddff
-;magenta=     #a4a7da
-;cyan=     #80cbc3
-;white=      #ffffff
-
-;background = #ce1d1f21
-;background-alt = #ce1d1f21
-;foreground = #c5c8c6
-;foreground-alt = #c5c8c6
-;foreground-dim = #676e7d
-
-;red  = #a54242
-;green = #b5bd68
-;yellow  = #de935f
-;blue  = #5f819d
-;magenta = #85678f
-;cyan  = #5e8d87
-;white  = #707880
-
-
-# override-redirect = true
-# wm-restack = i3
+red = #f07178
+green = #c3e88d
+yellow = #ffcb6b
+blue = #82aaff
+magenta = #c792ea
+cyan = #89ddff
+white = #d0d0d0
 
 [global/wm]
-margin-top = 10
+margin-top = 15
 margin-bottom = 10
 
 [bar/main]
 
-;monitor = eDP1
 bottom = false
 width = 100%
-height = 26
+height = 30
 offset-x = 0
 offset-y = 0
 
-;background = ${xrdb:color9}
 background = ${colors.background}
 foreground = ${colors.foreground}
 
@@ -82,46 +37,28 @@ underline-size = 2
 underline-color = ${colors.blue}
 
 spacing = 1
-padding-left = 0
-padding-right = 1
-module-margin-left = 0
-module-margin-right = 1
+padding-left = 2
+padding-right = 2
+module-margin-left = 1
+module-margin-right = 2
 
-font-0 = Hack:pixelsize=14:antialias=true;1
-font-1 = Roboto Mono:fontformat=truetype:size=10:antialias=true;0
-font-2 = Wuncon Siji:pixelsize=10:antialias=true;1
-font-3 = FontAwesome:pixelsize=9e:antialias=true;1
-font-4 = Siji:pixelsize=10;1
-font-5 = Material Icons:pixelsize=10:antialias=true;2
+font-0 = Hack:size=12:antialias=true
+font-1 = Font Awesome 5 Free:size=9:antialias=true
 
-modules-left =   i3
-modules-center =  music 
-modules-right =   volume pkg  filesystem  memory cpu temperature battery wlan date
-;systemRoot systemHome s
-
-;tray_output none
+modules-left = i3
+modules-center = date
+modules-right = volume filesystem memory cpu backlight-acpi battery wlan
 tray-position = right
-;tray-detached = true
 tray-padding = 2
 tray-transparent = false
-;tray-background = #be1e282c
 
 wm-restack = i3
-;wm-restack = i3
-
 override-redirect = false
-
-;scroll-up = bspwm-desknext
-;scroll-down = bspwm-deskprev
-
-;scroll-up = i3wm-wsnext
-;scroll-down = i3wm-wsprev
 
 [module/xwindow]
 type = internal/xwindow
 label = %title%
 label-maxlen = 30
-;label-background = ${colors.background-alt}
 label-padding = 2
 format-underline = ${colors.blue}
 
@@ -144,10 +81,11 @@ label-indicator-underline = ${colors.secondary}
 [module/filesystem]
 type = internal/fs
 interval = 25
+label-active-font = 1
 
 mount-0 = /
 
-label-mounted = " %percentage_used%%"
+label-mounted = "  %percentage_used%%"
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground-alt}
 format-mounted-underline = ${colors.yellow}
@@ -179,7 +117,7 @@ wrapping-scroll = false
 
 ; Only show workspaces on the same output as the bar
 ;pin-workspaces = true
-
+label-active-font = 2
 label-mode-padding = 2
 label-mode-foreground = #000
 label-mode-background = ${colors.primary}
@@ -205,19 +143,6 @@ label-urgent = %index%
 label-urgent-background = ${module/bspwm.label-urgent-background}
 label-urgent-padding = ${module/bspwm.label-urgent-padding}
 
-[module/mpd]
-type = internal/mpd
-format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>
-
-icon-prev = 
-icon-stop = 
-icon-play = 
-icon-pause = 
-icon-next = 
-
-label-song-maxlen = 25
-label-song-ellipsis = true
-
 [module/xbacklight]
 type = internal/xbacklight
 format-underline = ${colors.green}
@@ -227,16 +152,16 @@ ramp-1 = 🌔
 ramp-2 = 🌓
 ramp-3 = 🌒
 ramp-4 = 🌑
-
+label-active-font = 1
 bar-width = 6
 bar-indicator = |
 bar-indicator-foreground = #ff
-bar-indicator-font = 2
+bar-indicator-font = 1
 bar-fill = ─
-bar-fill-font = 2
+bar-fill-font = 1
 bar-fill-foreground = #ffffff
 bar-empty = ─
-bar-empty-font = 2
+bar-empty-font = 1
 bar-empty-foreground = ${colors.foreground-alt}
 
 [module/backlight-acpi]
@@ -247,6 +172,7 @@ card = intel_backlight
 [module/cpu]
 type = internal/cpu
 interval = 2
+label-active-font = 1
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = ${colors.magenta}
@@ -255,10 +181,11 @@ label = %percentage%%
 [module/memory]
 type = internal/memory
 interval = 2
-format-prefix = " "
+; format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = ${colors.blue}
 label = %percentage_used%%
+label-active-font = 1
 
 [module/wlan]
 type = internal/network
@@ -268,12 +195,9 @@ interval = 3.0
 format-connected = <ramp-signal><label-connected>
 format-connected-underline = ${colors.green}
 label-connected = %essid%
-
-;format-disconnected =
-;format-disconnected = <label-disconnected>
+label-active-font = 1
 format-disconnected-underline = ${self.format-connected-underline}
 label-disconnected = 
-;label-disconnected-foreground = ${colors.foreground-alt}
 ramp-signal-0 = 
 ramp-signal-1 = 
 ramp-signal-2 = 
@@ -292,10 +216,7 @@ format-connected-prefix-foreground = ${colors.foreground-alt}
 label-connected = %local_ip%
 
 format-disconnected =
-;format-disconnected = <label-disconnected>
 format-disconnected-underline = ${self.format-connected-underline}
-;label-disconnected = disconnected
-;label-disconnected-foreground = ${colors.foreground-alt}
 
 [module/date]
 type = internal/date
@@ -304,7 +225,7 @@ interval = 5
 date =
 date-alt = " %Y-%m-%d"
 
-time = %H:%M
+time = %H:%M - %B %d - %Y
 time-alt = %-I:%M %p
 
 format-prefix = 
@@ -316,6 +237,7 @@ label = %date% %time%
 [module/volume]
 type = internal/volume
 
+label-active-font = 1
 format-volume-underline = ${colors.red}
 format-volume = <ramp-volume><label-volume>
 format-muted-underline = ${colors.red}
@@ -326,12 +248,12 @@ ramp-volume-0 = 
 ramp-volume-1 = 
 
 
-
 [module/battery]
 type = internal/battery
 battery = BAT0
 adapter = ADP1
 full-at = 98
+label-active-font = 1
 
 format-charging = <animation-charging><label-charging>
 format-charging-underline = ${colors.red}
@@ -400,28 +322,12 @@ menu-2-0-exec = sudo poweroff
 menu-2-1 = cancel
 menu-2-1-exec = menu-open-0
 
-
-# [module/pkg]
-# type = custom/script
-# interval = 600
-# format = <label>
-# format-underline = ${colors.green}
-# label = "%output:0:100%"
-# exec = ~/.config/polybar/pkg.sh
-
 [module/redshift]
-type = custom/script
-interval = 5
-label = %{A1:~/.config/polybar/redshift2.sh:}%output:0:60:...%%{A}
-exec = ~/.config/polybar/redshift.sh
-format-underline=#ffb52a
-
-# [module/music]
 # type = custom/script
-# interval = 2
-
-# label = %output:0:60:...%
-# exec = ~/.config/polybar/mpris.sh
+# interval = 5
+# label = %{A1:~/.config/polybar/redshift2.sh:}%output:0:60:...%%{A}
+# exec = ~/.config/polybar/redshift.sh
+# format-underline=#ffb52a
 
 
 [module/pulse]
