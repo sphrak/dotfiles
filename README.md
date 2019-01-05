@@ -1,6 +1,6 @@
-# My dotfiles 2k19
+# Dotfiles 2k19
 
-configs for:
+![Preview](https://raw.githubusercontent.com/sphrak/dotfiles/master/assets/preview.png)
 
 * dunst
 * polybar
