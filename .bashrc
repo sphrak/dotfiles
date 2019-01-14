@@ -94,7 +94,6 @@ alias did="vim +'normal Go' +'r!date' ~/development/did/did.txt"
 alias vim="nvim"
 alias diff="diff --color=always"
 alias ..="cd .."
-alias autopw=
 
 PATH="`ruby -e 'puts Gem.user_dir'`/bin:$PATH"
 export WORKON_HOME=~/.virtualenvs
