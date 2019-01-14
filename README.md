@@ -10,3 +10,4 @@
 * git
 
 Color/theming is mostly [palemoon](https://github.com/drewtempelmeyer/palenight.vim) and or inspired by it.
+`neovim` plugins depends on [vim-plug](https://github.com/junegunn/vim-plug)
