@@ -3,7 +3,7 @@
 ![Preview](https://raw.githubusercontent.com/sphrak/dotfiles/master/assets/preview.png)
 
 * dunst
-* polybar
+* i3blocks
 * i3
 * neovim
 * termite
