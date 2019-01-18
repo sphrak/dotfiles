@@ -254,4 +254,4 @@ exec setxkbmap se
 exec --no-startup-id compton --xrender-sync --xrender-sync-fence --backend glx
 
 # Wallpaper
-exec feh --bg-fill /home/niclas/Downloads/wp2.jpg
+# exec feh --bg-fill /home/niclas/Downloads/wp2.jpg
