@@ -21,7 +21,7 @@ fi
 export HISTFILE="${HOME}/.history/$(date -u +%Y)/${HOSTNAME}/$(date -u +%Y%m%d_%M%S)_$$.log"
 export HISTCONTROL=ignoreboth
 export HISTCONTROL=erasedups
-export HISTIGNORE='&:bg:fg:clear:ls:ll:pwd:history:exit:make*:* --help:man'
+export HISTIGNORE='&:bg:fg:clear:ls:ll:pwd:history:exit:make*:* --help:man:* pacman:cd'
 export HISTTIMEFORMAT='%Y%m%d-%H:%M:%S'
 
 histgrep () {
