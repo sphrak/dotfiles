@@ -25,8 +25,7 @@ export HISTIGNORE='&:bg:fg:clear:ls:ll:pwd:history:exit:make*:* --help:man:* pac
 export HISTTIMEFORMAT='%Y%m%d-%H:%M:%S'
 
 histgrep () {
-    grep -r "$@" ~/.history
-    history | grep "$@"
+    grep -r "$@" ~/.history | cut -d ':' -f 2
 }
 
 export HISTSIZE=
