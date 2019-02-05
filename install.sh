@@ -47,7 +47,7 @@ for file in ${files[@]}; do
     fi
 done
 
-for dir in ${dirs}; do
+for dir in ${dirs[@]}; do
     echo "Symlinking directory ${dir} to ~/${config}/${dir}/"
     if [[ ! -d ~/${config}/${dir} && ! -L ~/${config}/${dir} ]]; then
         ln_directory
