@@ -16,7 +16,21 @@ Color/theming is mostly [palemoon](https://github.com/drewtempelmeyer/palenight.
 This kinda assumes a simple archlinux setup with `base` and `base-devel` available. YMMV.
 
 ```sh
-$ pacman -S git gpg i3-gaps i3blocks neovim termite xorg xorg-xinit
+$ pacman -S 
+compton
+feh
+git
+gpg
+i3-gaps
+i3blocks
+neovim
+otf-font-awesome
+ranger
+rofi
+termite
+ttf-hack
+xorg
+xorg-xinit
 ```
 
 ### PSA
@@ -38,6 +52,38 @@ $ ./install.sh
 
 This will symlink the config files and directories. Any existing files
 will be backed up to `~/.dotfiles/backup/$(date +%Y%M%d-%H%M%S)/`
+
+### Ly
+Setup the display manager:
+```sh
+$ curl -O https://aur.archlinux.org/cgit/aur.git/snapshot/ly-git.tar.gz
+```
+
+```sh
+$ tar xvfs ly-git.tar.gz
+```
+
+```sh
+$ cd ly-git
+$ makepkg -s
+$ pacman -U ly-git-*.tar.xz
+```
+
+And finally enable it:
+```sh
+$ systemctl enable ly.service
+```
+
+After a reboot it looks like this, simple:
+
+![ly](https://raw.githubusercontent.com/sphrak/dotfiles/master/assets/ly.png)
+
+### Neovim
+Install the dependencies with:
+```sh
+$ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+```
 
 ### Updating
 If you deploy the same way on each machine its simple to update
