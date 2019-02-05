@@ -5,13 +5,14 @@ files=(.xinitrc .bashrc .gitconfig)
 config=.config
 dotfiles=~/.dotfiles
 timestamp=$(date +%Y%M%d-%H%M%S)
-backup=${config}/backup/$timestamp/
+backup=${config}/backup/$timestamp
 
 echo "Deploying dotfiles.."
 cd ${dotfiles}
 echo "Current directory is: $(pwd)"
 
-function mkdir_backup() { 
+function mkdir_backup() {
+    echo "Backup directory missing. Creating it."
     if [[ ! -d ~/${backup} ]]; then 
         mkdir -p ~/${backup}
     fi
@@ -39,11 +40,8 @@ for file in ${files}; do
     if [[ ! -e ~/${file} ]]; then
         ln_file
     else
-        echo "File ${file} already exists. Moved original ${file} to ~/${backup}/${file}."
-        if [[ ! -e ~/${backup}/ ]]; then
-            echo "Backup directory missing. Creating it."
-            mkdir_backup
-        fi
+        echo "File ${file} already exists. Moved original ${file} to ~/${backup}/${file}"
+        mkdir_backup
         mv ~/${file} ~/${backup}/${file}
     fi
 done
@@ -52,7 +50,7 @@ for dir in ${dirs}; do
     echo "Symlinking directory ${dir} to ~/${config}/${dir}/"
 
     if [[ ! -d ${config}/${dir} ]]; then
-        ln_dir
+        ln_directory
     else
         echo "Folder ~/${config}/${dir} already exists. Moving ~/${config}/${dir} to ~/${backup}/${dir}"
         mv ~/${config}/${dir} ~/${backup}/
