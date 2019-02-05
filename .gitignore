@@ -1,10 +1,12 @@
 # Ignore all
 /*
 # Except
+!init.sh
 !wallpaper.jpg
 !assets/
 !.config/
 !.gitconfig
 !.gitignore
 !.bashrc
+!.xinitrc
 !README.md
