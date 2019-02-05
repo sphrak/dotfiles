@@ -35,25 +35,27 @@ function ln_directory() {
 
 mkdir_config
 
-for file in ${files}; do
+for file in ${files[@]}; do
     echo "Symlinking ${file} to ~/${file}.."
-    if [[ ! -e ~/${file} ]]; then
+    if [[ ! -f ~/${file} ]]; then
         ln_file
     else
         echo "File ${file} already exists. Moved original ${file} to ~/${backup}/${file}"
         mkdir_backup
         mv ~/${file} ~/${backup}/${file}
+        ln_file
     fi
 done
 
 for dir in ${dirs}; do
     echo "Symlinking directory ${dir} to ~/${config}/${dir}/"
 
-    if [[ ! -d ${config}/${dir} ]]; then
+    if [[ ! -d ~/${config}/${dir} ]]; then
         ln_directory
     else
         echo "Folder ~/${config}/${dir} already exists. Moving ~/${config}/${dir} to ~/${backup}/${dir}"
         mv ~/${config}/${dir} ~/${backup}/
+        ln_directory
     fi
 done
 
