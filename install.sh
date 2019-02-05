@@ -49,12 +49,15 @@ done
 
 for dir in ${dirs}; do
     echo "Symlinking directory ${dir} to ~/${config}/${dir}/"
-
-    if [[ ! -d ~/${config}/${dir} ]]; then
+    if [[ ! -d ~/${config}/${dir} && ! -L ~/${config}/${dir} ]]; then
         ln_directory
     else
         echo "Folder ~/${config}/${dir} already exists. Moving ~/${config}/${dir} to ~/${backup}/${dir}"
-        mv ~/${config}/${dir} ~/${backup}/
+        if [[ -L ~/${config}/${dir} ]]; then
+            rm ~/${config}/${dir}
+        else
+            mv ~/${config}/${dir} ~/${backup}/
+        fi
         ln_directory
     fi
 done
