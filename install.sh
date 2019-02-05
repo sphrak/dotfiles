@@ -30,7 +30,7 @@ function ln_file() {
 }
 
 function ln_directory() {
-    ln -s ${dotfiles}/${dir} ~/.config/
+    ln -s ${dotfiles}/.config/${dir} ~/.config/${dir}
 }
 
 mkdir_config
