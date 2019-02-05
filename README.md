@@ -16,21 +16,8 @@ Color/theming is mostly [palemoon](https://github.com/drewtempelmeyer/palenight.
 This kinda assumes a simple archlinux setup with `base` and `base-devel` available. YMMV.
 
 ```sh
-$ pacman -S 
-compton
-feh
-git
-gpg
-i3-gaps
-i3blocks
-neovim
-otf-font-awesome
-ranger
-rofi
-termite
-ttf-hack
-xorg
-xorg-xinit
+$ pacman -S compton feh git gpg i3-gaps i3blocks neovim \
+otf-font-awesome ranger rofi termite ttf-hack xorg xorg-xinit
 ```
 
 ### PSA
